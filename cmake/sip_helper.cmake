@@ -7,7 +7,7 @@ set(__PYTHON_QT_BINDING_SIP_HELPER_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 set(Python_ADDITIONAL_VERSIONS "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}")
 find_package(PythonInterp "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
-assert(PYTHON_EXECUTABLE)
+#assert(PYTHON_EXECUTABLE)
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
 
 find_program(SIP_EXECUTABLE sip)
@@ -223,7 +223,7 @@ function(build_sip_binding PROJECT_NAME SIP_FILE)
         WORKING_DIRECTORY ${SIP_BUILD_DIR}
         COMMENT "Compiling generated code for ${PROJECT_NAME} Python bindings..."
     )
-
+  
     add_custom_target(lib${PROJECT_NAME} ALL
         DEPENDS ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${CMAKE_SHARED_LIBRARY_SUFFIX}
         COMMENT "Meta target for ${PROJECT_NAME} Python bindings..."
